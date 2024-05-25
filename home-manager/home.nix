@@ -1,6 +1,13 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./alacritty.nix
+    ./nvim.nix
+    ./zsh.nix
+    ./tmux.nix
+  ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "kyle";
@@ -17,7 +24,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -64,73 +71,6 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
-  };
-
-
-  programs.zsh = {
-    enable = true;
-    enableAutosuggestions = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      nupdate = "sudo nixos-rebuild --flake /home/kyle/.config/nix#kyle-nix switch";
-      nedit = "nvim /home/kyle/.config/nix/nixos/configuration.nix";
-      hupdate = "home-manager --flake /home/kyle/.config/nix#kyle@kyle-nix switch";
-      hedit = "nvim /home/kyle/.config/nix/home-manager/home.nix";
-      nixdir = "cd /home/kyle/.config/nix";
-    };
-
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "z" "git" ];
-      theme = "robbyrussell";
-    };
-   };
-
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      font.size = 14;
-      shell.program = "tmux";
-    };
-  };
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-
-    extraConfig = ''
-      set number
-      set cc=120
-      set shiftwidth=4
-      set clipboard+=unnamedplus
-    '';
-
-    plugins = with pkgs.vimPlugins; [
-      telescope-nvim
-    ];
-  };
-
-  programs.tmux = {
-    enable = true;
-    extraConfig = ''
-      # remap prefix from 'C-b' to 'C-a'
-      unbind C-b
-      set-option -g prefix C-a
-      bind-key C-a send-prefix
-     
-      # split panes using | and -
-      bind | split-window -h
-      bind - split-window -v
-      unbind '"'
-      unbind %
-      
-      # Enable mouse control (clickable windows, panes, resizable panes)
-      set -g mouse on
-    '';
   };
 
   # Let Home Manager install and manage itself.
