@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
 
   programs.zsh = {
@@ -14,10 +14,21 @@
       nixdir = "cd /home/kyle/.config/nix";
       nix-shell = "nix-shell --run zsh";
     }; 
+    
+    plugins = [
+      {
+        name = "vi-mode";
+        src = pkgs.zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+      }
+    ];
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "z" "git" ];
+      plugins = [
+        "z"
+        "git"
+      ];
       theme = "robbyrussell";
     };
    };
