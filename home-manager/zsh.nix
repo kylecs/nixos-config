@@ -12,7 +12,8 @@
       hupdate = "home-manager --flake /home/kyle/.config/nix#kyle@kyle-nix switch";
       hedit = "nvim /home/kyle/.config/nix/home-manager/home.nix";
       nixdir = "cd /home/kyle/.config/nix";
-    };
+      nix-shell = "nix-shell --run zsh";
+    }; 
 
     oh-my-zsh = {
       enable = true;
