@@ -71,6 +71,7 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    LESS = "-j.5 -R --mouse --wheel-lines=3";
   };
 
   # Let Home Manager install and manage itself.

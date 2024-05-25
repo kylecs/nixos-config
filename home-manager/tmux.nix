@@ -20,6 +20,11 @@
       # don't rename windows automatically
       set-option -g allow-rename off
 
+      # pane switch vim keybindings
+      bind -r h select-pane -L
+      bind -r j select-pane -D
+      bind -r k select-pane -U
+      bind -r l select-pane -R
 
       # DESIGN TWEAKS
 
