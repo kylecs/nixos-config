@@ -11,7 +11,7 @@
       nedit = "nvim /home/kyle/.config/nix/nixos/configuration.nix";
       hupdate = "home-manager --flake /home/kyle/.config/nix#kyle@kyle-nix switch";
       hedit = "nvim /home/kyle/.config/nix/home-manager/home.nix";
-      nixdir = "cd /home/kyle/.config/nix";
+      nix-dir = "cd /home/kyle/.config/nix";
       nix-shell = "nix-shell --run zsh";
       nix-dev = "nix develop -c $SHELL";
     }; 

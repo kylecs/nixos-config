@@ -5,6 +5,7 @@
     gcc
     zig
     ripgrep
+    unzip
   ];
 
   programs.neovim = {

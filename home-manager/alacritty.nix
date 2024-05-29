@@ -3,9 +3,27 @@
  programs.alacritty = {
     enable = true;
     settings = {
-      font.size = 14;
-      shell.program = "tmux";
 
+      shell.program = "tmux";
+      font = {
+        size = 16;
+        normal = {
+           family = "Fira Mono Nerd Font";
+           style = "Regular";
+         };
+         bold = {
+           family = "Fira Mono Nerd Font";
+           style = "Bold";
+         };
+         italic = {
+           family = "Fira Mono Nerd Font";
+           style = "Italic";
+         };
+         bold_italic = {
+           family = "Fira Mono Nerd Font";
+           style = "Bold Italic";
+         };
+        };
       # not sure how to refer to this properly
       # TODO update to toml
       # import = ["~/.nix-profile/argonaut.yaml"];
