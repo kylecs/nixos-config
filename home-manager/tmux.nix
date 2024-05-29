@@ -26,6 +26,9 @@
       bind -r k select-pane -U
       bind -r l select-pane -R
 
+      # plugins
+      set -g @plugin 'charlietag/tmux-split-statusbar'
+
       # DESIGN TWEAKS
 
       # don't do anything when a 'bell' rings
@@ -45,6 +48,9 @@
       set -g pane-border-style 'fg=colour1'
       set -g pane-active-border-style 'fg=colour3'
       
+      set -g pane-border-status bottom
+      set -g pane-border-format '#{pane_index} #{pane_current_command}'
+
       # statusbar
       set -g status-position bottom
       set -g status-justify left
@@ -54,14 +60,14 @@
       set -g status-right-length 50
       set -g status-left-length 10
       
-      setw -g window-status-current-style 'fg=colour0 bg=colour1 bold'
-      setw -g window-status-current-format ' #I #W #F '
+      # setw -g window-status-current-style 'fg=colour0 bg=colour1 bold'
+      # setw -g window-status-current-format ' #I #W #F '
       
-      setw -g window-status-style 'fg=colour1 dim'
-      setw -g window-status-format ' #I #[fg=colour7]#W #[fg=colour1]#F '
+      # setw -g window-status-style 'fg=colour1 dim'
+      # setw -g window-status-format ' #I #[fg=colour7]#W #[fg=colour1]#F '
       
-      setw -g window-status-bell-style 'fg=colour2 bg=colour1 bold'
-      
+      # setw -g window-status-bell-style 'fg=colour2 bg=colour1 bold'
+
       # messages
       set -g message-style 'fg=colour2 bg=colour0 bold'
     ";

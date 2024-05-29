@@ -3,7 +3,7 @@
 {
   imports = [
     ./alacritty.nix
-    ./nvim.nix
+    ./neovim.nix
     ./zsh.nix
     ./tmux.nix
   ];

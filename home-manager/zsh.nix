@@ -13,15 +13,16 @@
       hedit = "nvim /home/kyle/.config/nix/home-manager/home.nix";
       nixdir = "cd /home/kyle/.config/nix";
       nix-shell = "nix-shell --run zsh";
+      nix-dev = "nix develop -c $SHELL";
     }; 
     
-    plugins = [
-      {
-        name = "vi-mode";
-        src = pkgs.zsh-vi-mode;
-        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
-      }
-    ];
+    # plugins = [
+    #   {
+    #     name = "vi-mode";
+    #     src = pkgs.zsh-vi-mode;
+    #     file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+    #   }
+    # ];
 
     oh-my-zsh = {
       enable = true;

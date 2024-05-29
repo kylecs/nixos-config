@@ -1,5 +1,12 @@
 { pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    gnumake
+    gcc
+    zig
+    ripgrep
+  ];
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -15,7 +22,14 @@
     '';
 
     plugins = with pkgs.vimPlugins; [
-      telescope-nvim
+      # telescope-nvim
     ];
   };
+
+
+  home.file.".config/nvim/" = {
+    source = ./neovim;
+    recursive = true;
+  };
+
 }
