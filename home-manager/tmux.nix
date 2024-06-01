@@ -3,55 +3,57 @@
   programs.tmux = {
     enable = true;
     extraConfig = " 
-      # remap prefix from 'C-b' to 'C-a'
       unbind C-b
+# remap prefix from 'C-b' to 'C-a'
       set-option -g prefix C-a
       bind-key C-a send-prefix
-     
-      # split panes using | and -
+
+# split panes using | and -
       bind | split-window -h
       bind - split-window -v
       unbind '\"'
       unbind %
-      
-      # Enable mouse control (clickable windows, panes, resizable panes)
+
+      set-option -ga terminal-overrides \"alacritty:Tc\"
+
+# Enable mouse control (clickable windows, panes, resizable panes)
       set -g mouse on
 
-      # don't rename windows automatically
+# fix vim mode change delay
+      set -sg escape-time 10
+
+# don't rename windows automatically
       set-option -g allow-rename off
 
-      # pane switch vim keybindings
+# pane switch vim keybindings
       bind -r h select-pane -L
       bind -r j select-pane -D
       bind -r k select-pane -U
       bind -r l select-pane -R
 
-      # plugins
-      set -g @plugin 'charlietag/tmux-split-statusbar'
+# DESIGN TWEAKS
 
-      # DESIGN TWEAKS
-
-      # don't do anything when a 'bell' rings
+# don't do anything when a 'bell' rings
       set -g visual-activity off
       set -g visual-bell off
       set -g visual-silence off
       setw -g monitor-activity off
       set -g bell-action none
-      
-      # clock mode
-      setw -g clock-mode-colour colour1
-      
-      # copy mode
-      setw -g mode-style 'fg=colour1 bg=colour18 bold'
-      
-      # pane borders
-      set -g pane-border-style 'fg=colour1'
-      set -g pane-active-border-style 'fg=colour3'
-      
-      set -g pane-border-status bottom
-      set -g pane-border-format '#{pane_index} #{pane_current_command}'
 
-      # statusbar
+# clock mode
+      setw -g clock-mode-colour colour1
+
+# copy mode
+      setw -g mode-style 'fg=colour1 bg=colour18 bold'
+
+# pane borders
+#       set -g pane-border-status bottom
+#       set -g pane-border-style 'fg=colour1'
+#       set -g pane-active-border-style 'fg=colour3'
+
+#       set -g pane-border-format '#{pane_index} #{pane_current_command}'
+
+# statusbar
       set -g status-position bottom
       set -g status-justify left
       set -g status-style 'fg=colour1'
@@ -59,17 +61,8 @@
       set -g status-right '%Y-%m-%d %H:%M '
       set -g status-right-length 50
       set -g status-left-length 10
-      
-      # setw -g window-status-current-style 'fg=colour0 bg=colour1 bold'
-      # setw -g window-status-current-format ' #I #W #F '
-      
-      # setw -g window-status-style 'fg=colour1 dim'
-      # setw -g window-status-format ' #I #[fg=colour7]#W #[fg=colour1]#F '
-      
-      # setw -g window-status-bell-style 'fg=colour2 bg=colour1 bold'
-
-      # messages
+# messages
       set -g message-style 'fg=colour2 bg=colour0 bold'
-    ";
+      ";
   };
 }
