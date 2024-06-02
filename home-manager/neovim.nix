@@ -6,6 +6,7 @@
     zig
     ripgrep
     unzip
+    lua
   ];
 
   programs.neovim = {

@@ -24,9 +24,7 @@
            style = "Bold Italic";
          };
         };
-      # not sure how to refer to this properly
-      # TODO update to toml
-      # import = ["~/.nix-profile/argonaut.yaml"];
+      import = ["~/.nix-profile/catppuccin.toml"];
     };
   };
  

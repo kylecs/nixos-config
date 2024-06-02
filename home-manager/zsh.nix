@@ -30,7 +30,7 @@
         "z"
         "git"
       ];
-      theme = "robbyrussell";
+      theme = "wezm";
     };
    };
 }
