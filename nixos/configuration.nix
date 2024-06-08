@@ -125,6 +125,7 @@
     neovim
     zsh
     gh
+    (catppuccin-kde.override {flavour = ["mocha"];})
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
