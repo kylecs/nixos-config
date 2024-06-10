@@ -126,6 +126,10 @@
     zsh
     gh
     (catppuccin-kde.override {flavour = ["mocha"];})
+    obs-studio
+    davinci-resolve
+    vlc
+    spotify
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
