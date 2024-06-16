@@ -48,6 +48,8 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  services.displayManager.defaultSession = "plasmax11";
+
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
@@ -127,9 +129,9 @@
     gh
     (catppuccin-kde.override {flavour = ["mocha"];})
     obs-studio
-    davinci-resolve
     vlc
     spotify
+    ffmpeg
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
