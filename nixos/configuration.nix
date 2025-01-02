@@ -65,6 +65,7 @@
     modesetting.enable = true;
     open = false;
     nvidiaSettings = true;
+    powerManagement.enable = true;
   };
 
   services.xserver.videoDrivers = [ "nvidia" ]; 
@@ -132,6 +133,7 @@
     vlc
     spotify
     ffmpeg
+    steam
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
