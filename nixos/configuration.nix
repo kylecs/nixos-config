@@ -126,6 +126,7 @@
     git
     alacritty
     neovim
+    fzf
     zsh
     gh
     (catppuccin-kde.override {flavour = ["mocha"];})
