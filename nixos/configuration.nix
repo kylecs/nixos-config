@@ -141,6 +141,9 @@ in
     gimp3-with-plugins
     android-studio
     httptoolkit
+    mullvad-browser
+    wireshark
+    protonplus
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

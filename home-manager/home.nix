@@ -6,6 +6,7 @@
     ./neovim.nix
     ./zsh.nix
     ./tmux.nix
+    ./wezterm.nix
   ];
   
   # Allow unfree packages
@@ -36,8 +37,7 @@
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
     # # fonts?
-    nerdfonts
-    (pkgs.nerdfonts.override { fonts = [ "FiraMono" ]; })
+    nerd-fonts.fira-mono
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
