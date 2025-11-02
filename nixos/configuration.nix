@@ -2,14 +2,10 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
-let
-  # Alias for packages from the unstable channel
-  unstablePkgs = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
-in
 {
- 
+  
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   imports =
@@ -62,7 +58,7 @@ in
       enable = true;
       enable32Bit = true;
     };
-  
+ 
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable; 
     modesetting.enable = true;
@@ -83,7 +79,7 @@ in
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
+  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -137,13 +133,6 @@ in
     spotify
     ffmpeg
     steam
-    unstablePkgs.blender
-    gimp3-with-plugins
-    android-studio
-    httptoolkit
-    mullvad-browser
-    wireshark
-    protonplus
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -47,6 +47,18 @@
     # '')
     alacritty-theme
     davinci-resolve
+
+    omnisharp-roslyn
+
+    # make an all lowercase variant that the neovim plugin works with.
+    (writeShellScriptBin "omnisharp" ''
+      #!${pkgs.bash}/bin/bash
+      # This script just executes the real OmniSharp, passing all arguments along.
+      exec ${pkgs.omnisharp-roslyn}/bin/OmniSharp "$@"
+    '')
+
+    vscode
+    wl-clipboard
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
