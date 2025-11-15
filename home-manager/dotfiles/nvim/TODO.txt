@@ -1,0 +1,6 @@
+- basic config(will come to me)
+- telescope
+- dashboard
+- bar
+- format on save
+- load lsp automatically

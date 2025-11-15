@@ -1,0 +1,8 @@
+font-family = "GeistMono NFM"
+font-size = 17
+
+theme = "catppuccin-mocha"
+
+command = "zsh -c tmux"
+
+quit-after-last-window-closed=true

@@ -2,11 +2,6 @@
 
 {
   imports = [
-    ./alacritty.nix
-    ./neovim.nix
-    ./zsh.nix
-    ./tmux.nix
-    ./wezterm.nix
     ./terminal.nix
   ];
   
