@@ -7,6 +7,7 @@
     ./zsh.nix
     ./tmux.nix
     ./wezterm.nix
+    ./terminal.nix
   ];
   
   # Allow unfree packages
