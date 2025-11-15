@@ -10,9 +10,9 @@ source $"($nu.cache-dir)/zoxide.nu"
 # nix specific config
 source ./nix.nu
 
-# # starship setup
-# mkdir ($nu.data-dir | path join "vendor/autoload")
-# starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+# starship setup
+mkdir ($nu.data-dir | path join "vendor/autoload")
+starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
 # carapace setup
 source $"($nu.cache-dir)/carapace.nu"
