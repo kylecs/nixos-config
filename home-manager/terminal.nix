@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
   programs.tmux = {
     enable = true;
@@ -41,8 +41,15 @@
     force = true;
   };
 
-  home.file.".config/nvim/" = {
-    source = ./dotfiles/nvim;
-    recursive = true;
-  };
+  # home.file.".config/nvim/" = {
+  #   # source = ./dotfiles/nvim;
+  #   source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/nvim;
+  #   recursive = true;
+  # };
+
+  # disgusting hack
+  home.activation.nvim = lib.mkAfter ''
+	rm -rf $HOME/.config/nvim
+	ln -sf $HOME/.config/nix/home-manager/dotfiles/nvim $HOME/.config/nvim
+  '';
 }

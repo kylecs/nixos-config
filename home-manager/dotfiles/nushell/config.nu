@@ -1,6 +1,7 @@
 $env.config.edit_mode = 'vi'
 $env.EDITOR = 'nvim'
 $env.config.show_banner = false
+$env.SHELL = 'nu'
 
 source ./catppuccin_mocha.nu
 
