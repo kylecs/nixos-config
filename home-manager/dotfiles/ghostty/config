@@ -1,7 +1,7 @@
 font-family = "GeistMono NFM"
 font-size = 17
 
-theme = "catppuccin-mocha"
+theme = Catppuccin Mocha
 
 command = "zsh -c tmux"
 
