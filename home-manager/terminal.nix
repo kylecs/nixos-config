@@ -1,5 +1,4 @@
-{ config, lib, pkgs, ... }:
-{
+{ config, lib, pkgs, ... }: {
   programs.tmux = {
     enable = true;
     extraConfig = builtins.readFile ./dotfiles/tmux/tmux.conf;
@@ -22,11 +21,14 @@
     ghostty
     nerd-fonts.geist-mono
 
-
     nushell
     zoxide
     carapace
     starship
+
+    ripgrep
+    nixfmt
+    unzip
   ];
 
   home.file.".config/ghostty" = {
@@ -49,7 +51,7 @@
 
   # disgusting hack
   home.activation.nvim = lib.mkAfter ''
-	rm -rf $HOME/.config/nvim
-	ln -sf $HOME/.config/nix/home-manager/dotfiles/nvim $HOME/.config/nvim
+    rm -rf $HOME/.config/nvim
+    ln -sf $HOME/.config/nix/home-manager/dotfiles/nvim $HOME/.config/nvim
   '';
 }
