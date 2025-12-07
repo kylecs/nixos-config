@@ -5,13 +5,15 @@
 { config, pkgs, ... }:
 
 {
-  
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -55,19 +57,19 @@
   services.desktopManager.plasma6.enable = true;
 
   hardware.graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
- 
+    enable = true;
+    enable32Bit = true;
+  };
+
   hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.stable; 
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
     modesetting.enable = true;
     open = false;
     nvidiaSettings = true;
     powerManagement.enable = true;
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ]; 
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   # Configure keymap in X11
   services.xserver = {
@@ -97,12 +99,14 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kyle = {
     isNormalUser = true;
     description = "Kyle";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
     ];
   };
@@ -127,7 +131,7 @@
     fzf
     zsh
     gh
-    (catppuccin-kde.override {flavour = ["mocha"];})
+    (catppuccin-kde.override { flavour = [ "mocha" ]; })
     obs-studio
     vlc
     spotify
