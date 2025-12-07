@@ -81,6 +81,7 @@
   #
   #  /etc/profiles/per-user/kyle/etc/profile.d/hm-session-vars.sh
   #
+
   home.sessionVariables = {
     # EDITOR = "emacs";
     LESS = "-j.5 -R --mouse --wheel-lines=3";
