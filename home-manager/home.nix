@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [ ./terminal.nix ];
@@ -72,6 +77,18 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
+
+  # disgusting hack
+  home.activation.niri = lib.mkAfter ''
+    rm -rf $HOME/.config/niri
+    ln -sf $HOME/.config/nix/home-manager/niri $HOME/.config/niri
+  '';
+
+  # disgusting hack
+  home.activation.waybar = lib.mkAfter ''
+    rm -rf $HOME/.config/waybar
+    ln -sf $HOME/.config/nix/home-manager/waybar $HOME/.config/waybar
+  '';
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home

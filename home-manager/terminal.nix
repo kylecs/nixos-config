@@ -64,4 +64,5 @@
     rm -rf $HOME/.config/nvim
     ln -sf $HOME/.config/nix/home-manager/dotfiles/nvim $HOME/.config/nvim
   '';
+
 }

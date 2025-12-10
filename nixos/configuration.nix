@@ -136,6 +136,10 @@
     spotify
     ffmpeg
     steam
+    waybar
+    fuzzel
+    swaylock
+    swaybg
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
