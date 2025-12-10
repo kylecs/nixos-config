@@ -54,6 +54,9 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
+
+  programs.niri.enable = true;
+
   services.desktopManager.plasma6.enable = true;
 
   hardware.graphics = {
@@ -114,14 +117,10 @@
   programs.zsh.enable = true;
   users.users.kyle.shell = pkgs.zsh;
 
-  # Install firefox.
   programs.firefox.enable = true;
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
     pciutils

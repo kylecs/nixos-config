@@ -53,6 +53,9 @@
 
     vscode
     wl-clipboard
+    prismlauncher
+    zulu25
+    visualvm
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

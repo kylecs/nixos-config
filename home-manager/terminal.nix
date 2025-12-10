@@ -35,6 +35,10 @@
     ripgrep
     nixfmt
     unzip
+    lua-language-server
+    stylua
+    fd
+    nil
   ];
 
   home.file.".config/ghostty" = {
