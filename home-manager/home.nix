@@ -59,8 +59,12 @@
     vscode
     wl-clipboard
     prismlauncher
-    zulu25
+    # zulu25
+    # jdk25_headless
+    maven
+    gnumake
     visualvm
+
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -88,6 +92,24 @@
   home.activation.waybar = lib.mkAfter ''
     rm -rf $HOME/.config/waybar
     ln -sf $HOME/.config/nix/home-manager/waybar $HOME/.config/waybar
+  '';
+
+  # disgusting hack
+  home.activation.hypr = lib.mkAfter ''
+    rm -rf $HOME/.config/hypr
+    ln -sf $HOME/.config/nix/home-manager/hypr $HOME/.config/hypr
+  '';
+
+  # disgusting hack
+  home.activation.fuzzel = lib.mkAfter ''
+    rm -rf $HOME/.config/fuzzel
+    ln -sf $HOME/.config/nix/home-manager/fuzzel $HOME/.config/fuzzel
+  '';
+
+  # disgusting hack
+  home.activation.wlogout = lib.mkAfter ''
+    rm -rf $HOME/.config/wlogout
+    ln -sf $HOME/.config/nix/home-manager/wlogout $HOME/.config/wlogout
   '';
 
   # Home Manager can also manage your environment variables through

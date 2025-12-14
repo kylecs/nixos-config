@@ -1,3 +1,4 @@
+local java_home = os.getenv("JAVA_HOME")
 return {
   {
     "mason-org/mason.nvim",
@@ -21,6 +22,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      inlay_hints = { enabled = false },
       servers = {
         lua_ls = {
           mason = false,
@@ -41,6 +43,9 @@ return {
               },
             },
           },
+        },
+        jdtls = {
+          mason = false,
         },
       },
     },
