@@ -44,9 +44,7 @@ return {
             },
           },
         },
-        jdtls = {
-          mason = false,
-        },
+        -- Java configured in jdtls.lua
       },
     },
   },
