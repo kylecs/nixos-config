@@ -77,7 +77,6 @@
     htop
     obsidian
     apktool
-    emacs
 
     # all for vterm
     libvterm
@@ -85,7 +84,15 @@
     gcc
     glibc
     glib
+    claude-code
   ];
+
+  programs.emacs = {
+    enable = true;
+    extraPackages = epkgs: [
+      epkgs.vterm
+    ];
+  };
 
   fonts.fontconfig.enable = true;
 

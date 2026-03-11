@@ -95,4 +95,5 @@
       :n "C-k" #'evil-window-up
       :n "C-l" #'evil-window-right)
 
-(map! :n "SPC e" #'neotree-toggle)
+;; lazyvim like, not sure if i want that
+;; (map! :n "SPC e" #'neotree-toggle)
