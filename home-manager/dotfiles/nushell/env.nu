@@ -8,3 +8,5 @@ zoxide init nushell | save --force $"($nu.cache-dir)/zoxide.nu"
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
 carapace _carapace nushell | save --force $"($nu.cache-dir)/carapace.nu"
 
+# doom emacs
+$env.PATH ++= ['~/.config/emacs/bin']

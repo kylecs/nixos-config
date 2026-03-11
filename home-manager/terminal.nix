@@ -39,6 +39,7 @@
     stylua
     fd
     nil
+    wgsl-analyzer
   ];
 
   home.file.".config/ghostty" = {

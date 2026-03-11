@@ -37,6 +37,8 @@
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
     # # fonts?
     nerd-fonts.fira-mono
+    nerd-fonts.fira-code
+    fira-sans
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -58,14 +60,34 @@
 
     vscode
     wl-clipboard
-    prismlauncher
-    # zulu25
-    # jdk25_headless
+    (pkgs.prismlauncher.override {
+      jdks = [
+        pkgs.openjdk25
+        pkgs.jdk21
+        pkgs.jdk17
+        pkgs.jdk8
+      ];
+    })
     maven
     gnumake
     visualvm
     vesktop
+    bruno
+    openjdk25
+    htop
+    obsidian
+    apktool
+    emacs
+
+    # all for vterm
+    libvterm
+    cmake
+    gcc
+    glibc
+    glib
   ];
+
+  fonts.fontconfig.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -100,6 +122,7 @@
     ln -sf $HOME/.config/nix/home-manager/hypr $HOME/.config/hypr
   '';
 
+
   # disgusting hack
   home.activation.fuzzel = lib.mkAfter ''
     rm -rf $HOME/.config/fuzzel
@@ -110,6 +133,12 @@
   home.activation.wlogout = lib.mkAfter ''
     rm -rf $HOME/.config/wlogout
     ln -sf $HOME/.config/nix/home-manager/wlogout $HOME/.config/wlogout
+  '';
+
+  # disgusting hack
+  home.activation.doomEmacs = lib.mkAfter ''
+    rm -rf $HOME/.config/doom
+    ln -sf $HOME/.config/nix/home-manager/doom $HOME/.config/doom
   '';
 
   # Home Manager can also manage your environment variables through

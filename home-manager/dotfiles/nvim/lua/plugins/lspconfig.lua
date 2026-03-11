@@ -44,6 +44,26 @@ return {
             },
           },
         },
+        rust_analyzer = {
+          mason = false,
+          settings = {
+            Nix = {
+              diagnostics = {
+                globals = { "vim" },
+              },
+            },
+          },
+        },
+        wgsl_analyzer = {
+          mason = false,
+          settings = {
+            Nix = {
+              diagnostics = {
+                globals = { "vim" },
+              },
+            },
+          },
+        },
         -- Java configured in jdtls.lua
       },
     },

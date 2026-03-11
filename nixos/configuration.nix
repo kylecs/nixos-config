@@ -81,7 +81,7 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing.enable = false;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -121,6 +121,8 @@
   programs.firefox.enable = true;
 
   nixpkgs.config.allowUnfree = true;
+
+  services.flatpak.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim
