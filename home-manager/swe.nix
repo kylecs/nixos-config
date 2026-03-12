@@ -44,6 +44,6 @@
 
   # doom emacs dotfiles symlink
   home.activation.doomEmacs = lib.mkAfter ''
-    ln -sf $HOME/.config/nix/home-manager/dotfiles/doomemacs $HOME/.config/doom
+    ln -snf $HOME/.config/nix/home-manager/dotfiles/doomemacs $HOME/.config/doom
   '';
 }
