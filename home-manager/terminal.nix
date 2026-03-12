@@ -23,15 +23,49 @@
     vimdiffAlias = true;
   };
 
+  programs.zsh = {
+    enable = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    shellAliases = {
+      # nix aliases
+      nupdate = "sudo nixos-rebuild --flake /home/kyle/.config/nix#kyle-nix switch";
+      nedit = "nvim /home/kyle/.config/nix/nixos/configuration.nix";
+      hupdate = "home-manager --flake /home/kyle/.config/nix#kyle@kyle-nix switch";
+      hedit = "nvim /home/kyle/.config/nix/home-manager/home.nix";
+      nix-dir = "cd /home/kyle/.config/nix";
+      nix-shell = "nix-shell --run zsh";
+      nix-dev = "nix develop -c $SHELL";
+
+      # eza
+      ls = "eza --icons";
+      ll = "eza -l --icons";
+    };
+
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "z"
+        "git"
+      ];
+    };
+
+   };
+
+  programs.carapace = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   home.packages = with pkgs; [
     ghostty
-
-    nushell
-    zoxide
-    carapace
-    starship
-
-    unzip
+    eza
   ];
 
   home.file.".config/ghostty" = {
@@ -48,6 +82,6 @@
 
   # neovim dotfiles
   home.activation.nvim = lib.mkAfter ''
-    ln -sf $HOME/.config/nix/home-manager/dotfiles/nvim $HOME/.config/nvim
+    ln -snf $HOME/.config/nix/home-manager/dotfiles/nvim $HOME/.config/nvim
   '';
 }
