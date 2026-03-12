@@ -6,7 +6,7 @@
 }:
 
 {
-  imports = [ ./terminal.nix ];
+  imports = [ ./terminal.nix ./entertainment.nix ./video.nix ./swe.nix ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -39,6 +39,7 @@
     nerd-fonts.fira-mono
     nerd-fonts.fira-code
     fira-sans
+    nerd-fonts.geist-mono
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -46,53 +47,17 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    alacritty-theme
-    davinci-resolve
 
-    omnisharp-roslyn
 
-    # make an all lowercase variant that the neovim plugin works with.
-    (writeShellScriptBin "omnisharp" ''
-      #!${pkgs.bash}/bin/bash
-      # This script just executes the real OmniSharp, passing all arguments along.
-      exec ${pkgs.omnisharp-roslyn}/bin/OmniSharp "$@"
-    '')
-
-    vscode
-    wl-clipboard
-    (pkgs.prismlauncher.override {
-      jdks = [
-        pkgs.openjdk25
-        pkgs.jdk21
-        pkgs.jdk17
-        pkgs.jdk8
-      ];
-    })
-    maven
-    gnumake
-    visualvm
-    vesktop
-    bruno
-    openjdk25
-    htop
-    obsidian
-    apktool
 
     # all for vterm
-    libvterm
-    cmake
-    gcc
-    glibc
-    glib
-    claude-code
+    # libvterm
+    # cmake
+    # gcc
+    # glibc
+    # glib
   ];
 
-  programs.emacs = {
-    enable = true;
-    extraPackages = epkgs: [
-      epkgs.vterm
-    ];
-  };
 
   fonts.fontconfig.enable = true;
 
@@ -111,42 +76,7 @@
     # '';
   };
 
-  # disgusting hack
-  home.activation.niri = lib.mkAfter ''
-    rm -rf $HOME/.config/niri
-    ln -sf $HOME/.config/nix/home-manager/niri $HOME/.config/niri
-  '';
 
-  # disgusting hack
-  home.activation.waybar = lib.mkAfter ''
-    rm -rf $HOME/.config/waybar
-    ln -sf $HOME/.config/nix/home-manager/waybar $HOME/.config/waybar
-  '';
-
-  # disgusting hack
-  home.activation.hypr = lib.mkAfter ''
-    rm -rf $HOME/.config/hypr
-    ln -sf $HOME/.config/nix/home-manager/hypr $HOME/.config/hypr
-  '';
-
-
-  # disgusting hack
-  home.activation.fuzzel = lib.mkAfter ''
-    rm -rf $HOME/.config/fuzzel
-    ln -sf $HOME/.config/nix/home-manager/fuzzel $HOME/.config/fuzzel
-  '';
-
-  # disgusting hack
-  home.activation.wlogout = lib.mkAfter ''
-    rm -rf $HOME/.config/wlogout
-    ln -sf $HOME/.config/nix/home-manager/wlogout $HOME/.config/wlogout
-  '';
-
-  # disgusting hack
-  home.activation.doomEmacs = lib.mkAfter ''
-    rm -rf $HOME/.config/doom
-    ln -sf $HOME/.config/nix/home-manager/doom $HOME/.config/doom
-  '';
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home

@@ -25,21 +25,13 @@
 
   home.packages = with pkgs; [
     ghostty
-    nerd-fonts.geist-mono
 
     nushell
     zoxide
     carapace
     starship
 
-    ripgrep
-    nixfmt
     unzip
-    lua-language-server
-    stylua
-    fd
-    nil
-    wgsl-analyzer
   ];
 
   home.file.".config/ghostty" = {
@@ -54,16 +46,8 @@
     force = true;
   };
 
-  # home.file.".config/nvim/" = {
-  #   # source = ./dotfiles/nvim;
-  #   source = config.lib.file.mkOutOfStoreSymlink ./dotfiles/nvim;
-  #   recursive = true;
-  # };
-
-  # disgusting hack
+  # neovim dotfiles
   home.activation.nvim = lib.mkAfter ''
-    rm -rf $HOME/.config/nvim
     ln -sf $HOME/.config/nix/home-manager/dotfiles/nvim $HOME/.config/nvim
   '';
-
 }

@@ -11,8 +11,8 @@
   ];
 
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./niri.nix
   ];
 
   # Bootloader.
@@ -111,8 +111,6 @@
       "networkmanager"
       "wheel"
     ];
-    packages = with pkgs; [
-    ];
   };
 
   programs.zsh.enable = true;
@@ -128,26 +126,11 @@
     vim
     pciutils
     git
-    alacritty
-    neovim
     fzf
     zsh
     gh
-    (catppuccin-kde.override { flavour = [ "mocha" ]; })
-    obs-studio
-    vlc
-    spotify
-    ffmpeg
-    steam
-    waybar
-    fuzzel
-    swaybg
-    playerctl
-    hyprlock
-    hypridle
-    pavucontrol
-    wlogout
     wget
+    (catppuccin-kde.override { flavour = [ "mocha" ]; })
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
