@@ -9,6 +9,7 @@
     extraPackages = epkgs: [
       epkgs.vterm
     ];
+    package = pkgs.emacs-pgtk;
   };
 
   home.packages = with pkgs; [

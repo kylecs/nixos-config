@@ -6,7 +6,7 @@
 }:
 
 {
-  imports = [ ./terminal.nix ./entertainment.nix ./video.nix ./swe.nix ];
+  imports = [ ./terminal.nix ./entertainment.nix ./video.nix ./swe.nix ./niri.nix ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -47,15 +47,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-
-
-
-    # all for vterm
-    # libvterm
-    # cmake
-    # gcc
-    # glibc
-    # glib
   ];
 
 

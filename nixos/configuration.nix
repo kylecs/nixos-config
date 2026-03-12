@@ -123,6 +123,7 @@
   services.flatpak.enable = true;
 
   environment.systemPackages = with pkgs; [
+    xwayland
     vim
     pciutils
     git
