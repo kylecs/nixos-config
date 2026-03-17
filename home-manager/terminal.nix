@@ -39,8 +39,8 @@
       nix-dev = "nix develop -c $SHELL";
 
       # eza
-      ls = "eza --icons";
-      ll = "eza -l --icons";
+      # ls = "eza --icons";
+      # ll = "eza -l --icons";
     };
 
     oh-my-zsh = {
@@ -65,7 +65,7 @@
 
   home.packages = with pkgs; [
     ghostty
-    eza
+    # eza
   ];
 
   home.file.".config/ghostty" = {

@@ -8,6 +8,7 @@
     enable = true;
     extraPackages = epkgs: [
       epkgs.vterm
+      epkgs.treesit-grammars.with-all-grammars
     ];
     package = pkgs.emacs-pgtk;
   };
@@ -25,6 +26,8 @@
     obsidian
     claude-code
 
+    typescript
+    typescript-language-server
     lua-language-server
     stylua
     fd
