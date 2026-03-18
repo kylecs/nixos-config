@@ -49,15 +49,12 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
-  services.displayManager.defaultSession = "plasmax11";
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-
-  programs.niri.enable = true;
-
   services.desktopManager.plasma6.enable = true;
+
+  services.displayManager.defaultSession = "niri";
+
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
 
   hardware.graphics = {
     enable = true;
