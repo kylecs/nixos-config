@@ -63,12 +63,9 @@
     enableZshIntegration = true;
   };
 
-  programs.kitty = {
-    enable = true;
-  };
-
   home.packages = with pkgs; [
     ghostty
+    kitty
     # eza
   ];
 
