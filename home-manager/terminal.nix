@@ -81,14 +81,13 @@
     force = true;
   };
 
-  home.file.".config/kitty" = {
-    source = ./dotfiles/kitty;
-    recursive = true;
-    force = true;
-  };
-
   # neovim dotfiles
   home.activation.nvim = lib.mkAfter ''
     ln -snf $HOME/.config/nix/home-manager/dotfiles/nvim $HOME/.config/nvim
+  '';
+
+  # kitty dotfiles
+  home.activation.kitty = lib.mkAfter ''
+    ln -snf $HOME/.config/nix/home-manager/dotfiles/kitty $HOME/.config/kitty
   '';
 }
