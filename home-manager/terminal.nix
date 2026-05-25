@@ -51,7 +51,7 @@
       ];
     };
 
-   };
+  };
 
   programs.carapace = {
     enable = true;
@@ -61,6 +61,10 @@
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
+  };
+
+  programs.kitty = {
+    enable = true;
   };
 
   home.packages = with pkgs; [
@@ -76,6 +80,12 @@
 
   home.file.".config/nushell" = {
     source = ./dotfiles/nushell;
+    recursive = true;
+    force = true;
+  };
+
+  home.file.".config/kitty" = {
+    source = ./dotfiles/kitty;
     recursive = true;
     force = true;
   };

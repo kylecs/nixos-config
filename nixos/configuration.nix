@@ -119,6 +119,11 @@
 
   services.flatpak.enable = true;
 
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   environment.systemPackages = with pkgs; [
     xwayland
     vim
