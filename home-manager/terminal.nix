@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  pkgs-unstable,
   ...
 }:
 {
@@ -63,10 +64,9 @@
     enableZshIntegration = true;
   };
 
-  home.packages = with pkgs; [
-    ghostty
-    kitty
-    # eza
+  home.packages = [
+    pkgs.ghostty
+    pkgs-unstable.kitty
   ];
 
   home.file.".config/ghostty" = {

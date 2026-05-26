@@ -11,9 +11,24 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
-    let inherit (self) outputs;
-    in {
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      home-manager,
+      ...
+    }@inputs:
+    let
+      inherit (self) outputs;
+      system = "x86_64-linux";
+      pkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+    in
+    {
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
@@ -28,9 +43,8 @@
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
         "kyle@kyle-nix" = home-manager.lib.homeManagerConfiguration {
-          pkgs =
-            nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs outputs; };
+          pkgs = nixpkgs.legacyPackages.${system}; # Home-manager requires 'pkgs' instance
+          extraSpecialArgs = { inherit pkgs-unstable inputs outputs; };
           # > Our main home-manager configuration file <
           modules = [ ./home-manager/home.nix ];
         };

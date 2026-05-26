@@ -1,12 +1,19 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   lib,
   ...
 }:
 
 {
-  imports = [ ./terminal.nix ./entertainment.nix ./video.nix ./swe.nix ./niri.nix ];
+  imports = [
+    ./terminal.nix
+    ./entertainment.nix
+    ./video.nix
+    ./swe.nix
+    ./niri.nix
+  ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -52,7 +59,6 @@
     #
   ];
 
-
   fonts.fontconfig.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -69,8 +75,6 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
-
-
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home
