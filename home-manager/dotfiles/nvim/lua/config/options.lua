@@ -3,3 +3,4 @@
 -- Add any additional options here
 vim.opt.swapfile = false
 vim.opt.relativenumber = false
+vim.opt.clipboard = "unnamedplus"

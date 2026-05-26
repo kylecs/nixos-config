@@ -66,6 +66,7 @@
 
   home.packages = [
     pkgs.ghostty
+    pkgs.xclip
     pkgs-unstable.kitty
   ];
 
