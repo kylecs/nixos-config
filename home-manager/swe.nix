@@ -26,6 +26,7 @@
     obsidian
     claude-code
 
+    deno
     typescript
     typescript-language-server
     lua-language-server
@@ -35,6 +36,8 @@
     wgsl-analyzer
     ripgrep
     nixfmt
+    jq
+    psmisc
 
     # make an all lowercase variant that the neovim plugin works with.
     (writeShellScriptBin "omnisharp" ''

@@ -1,44 +1,60 @@
 {
-  // yoinked from https://github.com/rubyowo/dotfiles/blob/f925cf8e3461420a21b6dc8b8ad1190107b0cc56/config/waybar/config
-  "layer": "top", // Waybar at top layer
-  "position": "bottom", // Waybar position (top|bottom|left|right)
+  "layer": "top",
+  "position": "bottom",
+  "height": 30,
+  "spacing": 0,
   "modules-left": [],
   "modules-center": [],
-  "modules-right": ["pulseaudio", "clock", "tray", "custom/lock", "custom/power"],
+  "modules-right": [
+    "custom/claude",
+    "custom/weather",
+    "pulseaudio",
+    "clock",
+    "tray",
+    "custom/lock",
+    "custom/power"
+  ],
   "tray": {
-    "icon-size": 21,
-    "spacing": 10
+    "icon-size": 18,
+    "spacing": 8
   },
   "clock": {
     "timezone": "America/New_York",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": " {:%d/%m/%Y}",
-    "format": "   {:%H:%M}"
+    "format-alt": " {:%d/%m/%Y}",
+    "format": "  {:%H:%M}"
   },
   "pulseaudio": {
-    "scroll-step": 5, // %, can be a float
-    "format": "{icon}   {volume}%",
-    "format-muted": "",
+    "scroll-step": 5,
+    "format": "{icon}  {volume}%",
+    "format-muted": "",
     "format-icons": {
-      "default": ["", "", " "]
+      "default": ["", "", ""]
     },
     "on-click": "pavucontrol"
+  },
+  "custom/claude": {
+    "exec": "$HOME/.config/waybar/claude-usage.sh",
+    "interval": 60,
+    "return-type": "json",
+    "tooltip": true,
+    "on-click": "rm -f $HOME/.cache/waybar-claude-usage/retry_after.epoch $HOME/.cache/waybar-claude-usage/usage.json"
+  },
+  "custom/weather": {
+    "exec": "$HOME/.config/waybar/weather.sh",
+    "interval": 60,
+    "return-type": "json",
+    "tooltip": true,
+    "on-click": "rm -f $HOME/.cache/waybar-weather/current.json"
   },
   "custom/lock": {
     "tooltip": false,
     "on-click": "sh -c '(sleep 0.5s; hyprlock)' & disown",
-    "format": "",
+    "format": ""
   },
   "custom/power": {
     "tooltip": false,
     "on-click": "wlogout &",
     "format": "󰍃"
-  },
-  // "niri/window": {
-  //   "format": "{}",
-  //   "rewrite": {
-  //     "(.*) - Mozilla Firefox": "🌎 $1",
-  //     "(.*) - zsh": "> [$1]"
-  //   }
-  // }
+  }
 }
