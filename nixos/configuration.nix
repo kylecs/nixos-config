@@ -114,6 +114,7 @@
   users.users.kyle.shell = pkgs.zsh;
 
   programs.firefox.enable = true;
+  programs.chromium.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
