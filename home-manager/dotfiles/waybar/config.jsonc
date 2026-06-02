@@ -3,7 +3,9 @@
   "position": "bottom",
   "height": 30,
   "spacing": 0,
-  "modules-left": [],
+  "modules-left": [
+    "wlr/taskbar"
+  ],
   "modules-center": [],
   "modules-right": [
     "custom/claude",
@@ -14,6 +16,17 @@
     "custom/lock",
     "custom/power"
   ],
+  "wlr/taskbar": {
+    "all-outputs": false,
+    "format": "{icon} {title}",
+    "icon-size": 16,
+    "icon-theme": "breeze-dark",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "active-first": false,
+    "ignore-list": ["waybar"]
+  },
   "tray": {
     "icon-size": 18,
     "spacing": 8

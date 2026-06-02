@@ -40,6 +40,35 @@ window#waybar {
   background-size: 18px 18px;
 }
 
+#taskbar {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+#taskbar button {
+  color: @text;
+  background-color: transparent;
+  padding: 0 10px;
+  margin: 0;
+  border-right: 1px solid alpha(@surface1, 0.5);
+  border-bottom: 2px solid transparent;
+}
+
+#taskbar button label {
+  margin-left: 6px;
+}
+
+#taskbar button.active {
+  color: @lavender;
+  background-color: alpha(@surface0, 0.6);
+  border-bottom: 2px solid @lavender;
+}
+
+#taskbar button:hover {
+  background-color: alpha(@surface0, 0.6);
+}
+
 #pulseaudio {
   color: @maroon;
 }
