@@ -26,6 +26,7 @@
     obsidian
     claude-code
 
+    python3
     deno
     typescript
     typescript-language-server
