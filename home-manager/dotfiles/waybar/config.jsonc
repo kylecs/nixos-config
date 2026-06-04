@@ -19,6 +19,9 @@
   "wlr/taskbar": {
     "all-outputs": false,
     "format": "{icon} {title}",
+    "rewrite": {
+      "(.{40}).+": "$1…"
+    },
     "icon-size": 16,
     "icon-theme": "breeze-dark",
     "tooltip-format": "{title}",
