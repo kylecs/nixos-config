@@ -72,25 +72,18 @@ input {
     // focus-follows-mouse max-scroll-amount="0%"
 }
 
-// main
+// left portrait (Acer XV272U)
 output "DP-2" {
-    mode "2560x1440@279.958"
+    mode "2560x1440@179.997"
 
     scale 1.0
 
-    transform "normal"
+    transform "90"
 
-    position x=0 y=0
+    position x=0 y=-560
 
     focus-at-startup
-}
 
-// right vertical
-output "DP-1" {
-    mode "2560x1440@179.997"
-    scale 1.0
-    transform "270"
-    position x=2560 y=-600
     layout {
       always-center-single-column true
       default-column-width { proportion 1.0; }
@@ -101,12 +94,20 @@ output "DP-1" {
     }
 }
 
-// left
+// middle (Dell AW2723DF)
+output "DP-1" {
+    mode "2560x1440@279.958"
+    scale 1.0
+    transform "normal"
+    position x=1440 y=0
+}
+
+// right (Acer XV272U)
 output "DP-3" {
     mode "2560x1440@179.997"
     scale 1.0
     transform "normal"
-    position x=-2560 y=0
+    position x=4000 y=0
 }
 
 // Settings that influence how windows are positioned and sized.
