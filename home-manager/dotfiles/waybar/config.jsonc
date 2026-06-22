@@ -13,6 +13,7 @@
     "pulseaudio",
     "clock",
     "tray",
+    "custom/caffeine",
     "custom/lock",
     "custom/power"
   ],
@@ -62,6 +63,15 @@
     "return-type": "json",
     "tooltip": true,
     "on-click": "rm -f $HOME/.cache/waybar-weather/current.json"
+  },
+  "custom/caffeine": {
+    "format": "{}",
+    "exec": "$HOME/.config/waybar/caffeine.sh status",
+    "return-type": "json",
+    "interval": 10,
+    "signal": 8,
+    "tooltip": true,
+    "on-click": "$HOME/.config/waybar/caffeine.sh toggle"
   },
   "custom/lock": {
     "tooltip": false,

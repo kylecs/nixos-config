@@ -20,6 +20,7 @@ window#waybar {
 #tray,
 #clock,
 #pulseaudio,
+#custom-caffeine,
 #custom-lock,
 #custom-power {
   background-color: transparent;
@@ -81,6 +82,15 @@ window#waybar {
   padding: 0 8px;
 }
 
+/* caffeine: warm/lit when inhibiting sleep, dim when idle management is on */
+#custom-caffeine.active {
+  color: @peach;
+}
+
+#custom-caffeine.inactive {
+  color: @overlay1;
+}
+
 #custom-lock {
   color: @lavender;
 }
@@ -95,6 +105,7 @@ window#waybar {
 #clock:hover,
 #custom-claude:hover,
 #custom-weather:hover,
+#custom-caffeine:hover,
 #custom-lock:hover,
 #custom-power:hover {
   background-color: alpha(@surface0, 0.6);
