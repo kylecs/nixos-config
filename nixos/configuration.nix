@@ -119,6 +119,8 @@
 
   services.flatpak.enable = true;
 
+  services.tailscale.enable = true;
+
   virtualisation.docker.rootless = {
     enable = true;
     setSocketVariable = true;
